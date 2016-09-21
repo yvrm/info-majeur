@@ -1,0 +1,111 @@
+sommet -> bolinhas
+aretes -> tracinhos
+
+grafos orientados
+	as aretes sao arcs
+	chaqu'arc a un sommet predecesseur et un sommet sucesseur
+	boucle = sommet que possui uma aresta para si mesmo
+
+matriz de adjacencias
+	linhass sao origens
+	colunas sao destinos
+
+grafo simples
+	nao tem boucle
+	diagonal toda zero
+
+grafo nao orientado
+	matriz adjacencias simetrica
+
+grafo ponderado
+	pesos nas ligacoes
+
+um grafo nao ponderado e nao-simples pode ser substituido por um grafo simples e ponderado
+um grafo ponderado e nao-simples exige uma estrutura mais complexa
+
+cocitation de i e j
+	eh a soma dos sommets que apontam pra i e j ao mesmo tempo
+	
+couplage bibliographique de i e j
+	eh a soma de sommets que eh apontado por i e j ao mesmo tempo
+
+ciclos
+	so existe em grafo orientado
+	possui sources
+		sommets sem antecessor
+	possui puits
+		sommets sem sucessor
+
+todo grafo direcionado aciclico tem um source e um puit
+	porque o numero de sommets eh finito
+
+tri tropologie
+	a matriz de adj eh triangular superior
+	a matriz tem diagonal nula
+		logo, autovalores sao zero
+	o valor do sucessor eh smp maior que do sucessor
+	isso prova que os autovalores de um grafo aciclico e orientado sao zero
+	a reciproca eh verdadeira
+
+ordre do grafo > |G|
+	numero de sommets
+
+taille do grafo > ||G||
+	numero de aretes
+
+grafo discreto: ||G|| = 0
+grafo completo: ||G|| = (|G| * (|G|-1) ) / 2
+
+k regulier
+	quando todos os sommets tem grau k
+
+grau de um sommet
+	entree ou sortie
+	numero de arestas que entram ou saem do sommet
+
+clique
+	pedaco do grafo que eh completo
+
+estable
+	pedaco do grafo que eh discreto
+
+grafo bipartie
+	grafo tem dois grupos
+	a uniao deles eh o grafo inteiro
+	cada grupo eh um estable
+
+um grafo eh bipartido <=> nao possui nenhum ciclo de comprimento impar
+
+*** toda arvore eh um grafo bipartido
+
+****
+matriz d'incidence
+	um grafo de 6 sommets que eh bipartido so precisa de uma matrix 3x3
+	cada linha eh um sommet do grupo 0
+	cada coluna eh um sommet do grupo 1
+	
+grafo conexo
+	qualquer par de sommets pode ser ligado por aretes
+
+chemin simple
+	caminho que nao repete arete
+
+arvore
+	eh um grafo conexo e aciclico, ou seja, eh o equilibrio entre grafo completo
+	se botar uma aresta, tem ciclo
+	se tirar uma aresta, deixa de ser conexo
+	sommets de grau 1 = folhas (feuilles)
+	folhas nao sao n√s
+	nao precisam ser orientadas
+	qualquer no pode ser uma raiz
+	a partir do momento que escolhe uma raiz, so existe um grafo orientado que representa arvore
+	||T|| = |T| -1
+
+
+foret
+	grafo que eh um conjunto de arvores
+	cada composante connexe eh uma arbre
+
+
+
+
