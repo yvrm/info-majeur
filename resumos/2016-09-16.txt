@@ -95,7 +95,7 @@ arvore
 	se botar uma aresta, tem ciclo
 	se tirar uma aresta, deixa de ser conexo
 	sommets de grau 1 = folhas (feuilles)
-	folhas nao sao n�s
+	folhas nao sao nÃs
 	nao precisam ser orientadas
 	qualquer no pode ser uma raiz
 	a partir do momento que escolhe uma raiz, so existe um grafo orientado que representa arvore
@@ -137,14 +137,14 @@ chemins independents vis-a-vis des aretes
 chemins independents vis-a-vis des sommets
 	2 caminhos no mesmo grafo que nao compartilham sommets
 
-connectivitéentre i e j:
+connectivitÃ©entre i e j:
 	numero de caminhos independentes de i a j
-*** nao confundir com connexité
+*** nao confundir com connexitÃ©
 
 coupe minimale de sommets entre i e j:
 	numero de sommets que precisam ser retirados para impedir a conectividade entre i e j
 
-=> o tamanho do coupe minimale entre i e j eh igual a connectivitédesse par
+=> o tamanho do coupe minimale entre i e j eh igual a connectivitÃ©desse par
 
 Laplacien
 	L = D - A
@@ -154,7 +154,7 @@ Laplacien
 	Se nao, a quantidade de autovalores = 0 eh a qtd de componentes conexas
 
 Triangulacao
-	grafo triangulé
+	grafo triangulÃ©
 		todos os ciclos de tamanho >4 precisam ter uma aresta passando pelo meio do ciclo
 	so nao eh triangular se tiver um ciclo >4 que nao tenha uma aresta passando pelo meio
 
@@ -231,7 +231,7 @@ Arbre couvrants minimaux:
 
 Mesures
 
-centralité
+centralitÃ©
 	sao maneiras de encontrar os sommets mais importantes
 	mas a nocao de "mais importante" pode mudar
 	
@@ -254,6 +254,9 @@ Katz
 
 PageRange
 	as setas menos usadas valem mais, dessa forma os sommets no meio do nada mas que so tem um caminho ate eles valem muito
+	
+	PageRank works by counting the number and quality of links to a page to determine a rough estimate of how important the website is. The underlying assumption is that more important websites are likely to receive more links from other websites.
+
 
 Proximite
 	distance geodesique moyenne = DGM
