@@ -106,6 +106,161 @@ foret
 	grafo que eh um conjunto de arvores
 	cada composante connexe eh uma arbre
 
+p = ( ||G|| / n(n-1) ) / 2 = c / (n-1)
+
+se p < 0 para |G| infinito, eh um grafo esparso
+se nao, eh um grafo denso
+
+
+chemins
+	se nao tem ponderacao, o tamanho do caminho eh a qtd de arestas pelas quais ele passa
+	se tem ponderacao, soma as ponderacoes
+
+nombre de chemins de longueur N
+	A ^ N = B, onde B eh uma matriz que diz todos os caminhos de tamanho N
+	se aparecem numeros na diagonal eh pq existem ciclos
+
+chemin eulerien
+	passa por todas as aretes sem repetir sommet
+	todos os sommets tem que ter grau par
+
+chemin hamiltonien
+	passa uma vez por cada sommet, sem repetir
+
+component fortement connexe
+	1 <-> 2 <-> 3
+component faiblement connexe
+	1 -> 2 -> 3
+
+chemins independents vis-a-vis des aretes
+	2 caminhos no mesmo grafo que nao compartilham arestas
+chemins independents vis-a-vis des sommets
+	2 caminhos no mesmo grafo que nao compartilham sommets
+
+connectivitéentre i e j:
+	numero de caminhos independentes de i a j
+*** nao confundir com connexité
+
+coupe minimale de sommets entre i e j:
+	numero de sommets que precisam ser retirados para impedir a conectividade entre i e j
+
+=> o tamanho do coupe minimale entre i e j eh igual a connectivitédesse par
+
+Laplacien
+	L = D - A
+		onde D eh uma matriz diagonal com os graus de cada sommet
+	Com os autovalores de L, podemos saber quantas componentes conexas existem no grafo
+	Se o segundo autovalor for != 0, grafo conexo
+	Se nao, a quantidade de autovalores = 0 eh a qtd de componentes conexas
+
+Triangulacao
+	grafo triangulé
+		todos os ciclos de tamanho >4 precisam ter uma aresta passando pelo meio do ciclo
+	so nao eh triangular se tiver um ciclo >4 que nao tenha uma aresta passando pelo meio
+
+graphe d'intervalles
+	eh sempre triangular
+	nao possui triangulos inscritos (sem compartilhar arestas) dentro de hexagonos
+
+
+Algoritmos
+
+percorrer:
+	BFS > Breath First Search
+		acha o mais curto
+		NAO PODE ser recursivo
+		usa uma fila como estrutura auxiliar
+
+	DFS > Depth First Search
+		recursivo ou nao
+		vai ate as folhas primeiro
+		usa uma pilha (ou a propria recursao)
+
+Arbre des plus courts chemins:
+
+	Bellman-Ford
+		so vai relaxando alucinadamente
+		relaxa todo mundo em relacao ao atual
+		marca arvore que ja passou
+		por ultimo, gera arvore
+
+	Dijkstra
+		algoritmo
+			inicialia todos os sommets com infinito antes de comecar
+			comeca pela raiz
+		L1	relaxa todos os vizinhos
+			poe todos os vizinhos numa lista para-visitar
+			marca o sommet atual como visitado
+			escolhe o menor da lista para-visitar
+			se existe alguem na lista, volta pra L1
+
+		relaxar = colocar a soma do caminho ate o sommet
+		*** bom pra grafos densos
+		https://upload.wikimedia.org/wikipedia/commons/5/57/Dijkstra_Animation.gif
+
+	Heuristica
+		Distancia de manhattan
+			um tipo de heuristica, do quebra cabecas de numeros
+
+	Dijkstra com heuristica
+		para antes de terminar, quando encontra o sommet procurado
+		nao garante o menor caminho
+		menos iteracoes que o Dijkstra
+
+Arbre couvrants minimaux:
+
+	Kruskall
+		algoritmo
+			pega a menor aresta disponivel
+			cria um dicionario sommet-composant
+		
+		nao garante arvore conexa durante o funcionamento, so no fim
+	
+	Prim
+		algoritmo
+			Dijkstra com pseudo-relax
+		pesudo-relax
+			nao usa a soma ate o cara, usa apenas o valor de cada aresta individualmente
+
+*** Flots et reseaux de transport
+	caracteristica:
+		limite de capacidade
+		fluxo
+	pode ser sem origem e fim, nesse caso considerar infinitas
+
+
+Mesures
+
+centralité
+	sao maneiras de encontrar os sommets mais importantes
+	mas a nocao de "mais importante" pode mudar
+	
+centralite par degree
+	entrant ou sortant
+	(d[sommet] - d[min]) / (d[max] - d[min])
+	nao considera muito a centralidade, ou seja, o sommet pode estar cercado de sommets importantes sem ser importante
+
+centralite non orientee par vecteur propre
+	quanto mais vizinhos com muito vizinhos, mais imporante
+	matemagica
+	
+centralite orientee par vecteur propre
+	problemas: alguns sommets que geralmente sao importantes nao sao considerados importantes nesse metodo
+
+Katz
+	Generalizacao do degree centrality
+	O sommet mais importante eh o que tem mais nos que conseguem chegar nele
+	problema: fechadura que abre com qualquer chave
+
+PageRange
+	as setas menos usadas valem mais, dessa forma os sommets no meio do nada mas que so tem um caminho ate eles valem muito
+
+Proximite
+	distance geodesique moyenne = DGM
+	quanto maior a DGM, mais importante
+	em grafos disconexos, usa harmonica
+
+
 
 
 
